@@ -112,3 +112,14 @@ python test.py \
 
 ```
 
+# Useful tools
+
+```shell
+python tools/flops_params_count.py \
+-c "configs/logcan.py" \
+```
+```shell
+python tools/latency_count.py \
+-c "configs/logcan.py" \
+--ckpt "work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt" \
+```
