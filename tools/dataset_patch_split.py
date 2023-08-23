@@ -69,7 +69,7 @@ def split(img,mask_rgb,img_filename,mask_filename):
 def vaihingen_split(inp):
     (img_path, mask_path, imgs_output_dir, masks_output_dir, split_size, stride) = inp
     img_filename = os.path.splitext(os.path.basename(img_path))[0]
-    mask_filename = os.path.splitext(os.path.basename(mask_path))[0]
+    mask_filename = img_filename
 
     image = Image.open(img_path).convert('RGB')
     mask = Image.open(mask_path).convert('RGB')
@@ -133,8 +133,8 @@ def get_vaihingen_file(imgs_dir,masks_dir,imgs_output_dir,masks_output_dir,split
 def potsdam_split(inp):
     (img_path, mask_path, imgs_output_dir, masks_output_dir, split_size, stride) = inp
 
-    img_filename = os.path.basename(img_path)
-    mask_filename = os.path.basename(mask_path)
+    img_filename = os.path.splitext(os.path.basename(img_path))[0]
+    mask_filename = img_filename
 
     image = Image.open(img_path).convert('RGB')
     mask = Image.open(mask_path).convert('RGB')
