@@ -1,7 +1,7 @@
 
 # Supported data
 | Dataset | Original dataset | Preprocessed data | Description |
-| ------- | ------------- | ----------------- | ----------- |
+| ------- | :-------------: | ----------------- | ----------- |
 | Vaihingen | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
 | Potsdam | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
 | LoveDA | [link](https://codalab.lisn.upsaclay.fr/competitions/421) |
