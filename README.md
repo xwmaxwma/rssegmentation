@@ -1,3 +1,21 @@
+
+# Supported data
+| Dataset | Original dataset | Preprocessed data | Description |
+| ------- | ------------- | ----------------- | ----------- |
+| Vaihingen | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
+| Potsdam | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
+| LoveDA | [link](https://codalab.lisn.upsaclay.fr/competitions/421) |
+
+We provide links to the preprocessed data. Alternatively, you can preprocess the original dataset based on the following command.
+We will support the isaid dataset soon.
+
+# Supported Method
+| Method | Config | Checkpoint |
+| ------ | ------ | ---------- |
+| LogCAN |
+| SACANet |
+| DocNet |
+
 # Get start
 
 ```shell
@@ -42,15 +60,7 @@ rssegmentation
 ```
 
 # Data Processing
-## Supported data
-| Dataset | Original dataset | Preprocessed data | Description |
-| ------- | ------------- | ----------------- | ----------- |
-| Vaihingen | :[link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx): | |
-| Potsdam | :[link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx): | |
-| LoveDA | :[link](https://codalab.lisn.upsaclay.fr/competitions/421): |
 
-We provide links to the preprocessed data. Alternatively, you can preprocess the original dataset based on the following command.
-We will support the isaid dataset soon.
 ## Vaihingen
 
 **train**
