@@ -12,8 +12,8 @@ We will support the isaid dataset soon.
 # Supported Method
 | Method | Config | Checkpoint |
 | ------ | ------ | ---------- |
-| LogCAN |
-| SACANet |
+| [LogCAN](https://arxiv.org/abs/2303.07747) |
+| [SACANet](https://arxiv.org/abs/2304.11424) |
 | DocNet |
 
 # Get start
