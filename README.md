@@ -43,11 +43,14 @@ rssegmentation
 
 # Data Processing
 ## Supported data
-| dataset | download link | Preprocessed link |
+| Dataset | Original dataset | Preprocessed data | Description |
 | ------- | ------------- | ----------------- |
-| Vaihingen | 
-| Potsdam |
-| LoveDA |
+| Vaihingen | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
+| Potsdam | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
+| LoveDA | [link](https://codalab.lisn.upsaclay.fr/competitions/421) |
+
+We provide links to the preprocessed data. Alternatively, you can preprocess the original dataset based on the following command.
+We will support the isaid dataset soon.
 ## Vaihingen
 
 **train**
@@ -150,15 +153,16 @@ python test.py \
 ```
 
 **LoveDA**
-
+Note that since the loveda dataset needs to be evaluated online, we provide the corresponding test commands.
 ```shell
-python test.py \
+python online_test.py \
 -c "configs/logcan.py" \
 --ckpt "work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt" \
 ```
 
 # Useful tools
 
+We provide two useful commands to test the model for parameters, flops and latency.
 ```shell
 python tools/flops_params_count.py \
 -c "configs/logcan.py" \
@@ -168,3 +172,4 @@ python tools/latency_count.py \
 -c "configs/logcan.py" \
 --ckpt "work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt" \
 ```
+We will support feature visualizations as well as attention relationship visualizations soon.
