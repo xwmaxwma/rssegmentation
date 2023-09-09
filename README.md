@@ -42,7 +42,12 @@ rssegmentation
 ```
 
 # Data Processing
-
+## Supported data
+| dataset | download link | Preprocessed link |
+| ------- | ------------- | ----------------- |
+| Vaihingen | 
+| Potsdam |
+| LoveDA |
 ## Vaihingen
 
 **train**
