@@ -5,10 +5,41 @@ conda create -n rsseg python=3.9
 conda activate rsseg
 conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=11.7 -c pytorch -c nvidia
 pip install -r requirements.txt
-
 ```
 
+# Folder Structure
 
+Prepare the following folders to organize this repo:
+
+```none
+rssegmentation
+├── rssegmentation (code)
+├── work_dirs (save the model weights and training logs)
+├── data
+│   ├── LoveDA
+│   │   ├── Train
+│   │   │   ├── Urban
+│   │   │   │   ├── images_png (original images)
+│   │   │   │   ├── masks_png (original labels)
+│   │   │   ├── Rural
+│   │   │   │   ├── images_png (original images)
+│   │   │   │   ├── masks_png (original labels)
+│   │   ├── Val (the same with Train)
+│   │   ├── Test
+│   ├── vaihingen
+│   │   ├── ISPRS_semantic_labeling_Vaihingen 
+│   │   │   ├── top (original images)
+│   │   ├── ISPRS_semantic_labeling_Vaihingen_ground_truth_COMPLETE (original labels)
+│   │   ├── ISPRS_semantic_labeling_Vaihingen_ground_truth_eroded_COMPLETE (original noBoundary lables)
+│   │   ├── train (processed)
+│   │   ├── test (processed)
+│   ├── potsdam (the same with vaihingen)
+│   │   ├── 2_Ortho_RGB (original images)
+│   │   ├── 5_Labels_all (original labels)
+│   │   ├── 5_Labels_all_noBoundary (original noBoundary lables)
+│   │   ├── train (processed)
+│   │   ├── test (processed)
+```
 
 # Data Processing
 
@@ -105,11 +136,20 @@ python train.py -c "configs/logcan.py"
 
 # Testing
 
+**Vaihingen and Potsdam**
+
 ```shell
 python test.py \
 -c "configs/logcan.py" \
 --ckpt "work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt" \
+```
 
+**LoveDA**
+
+```shell
+python test.py \
+-c "configs/logcan.py" \
+--ckpt "work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt" \
 ```
 
 # Useful tools
