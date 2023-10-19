@@ -1,6 +1,6 @@
 dataset_config = dict(
     type='LoveDA',
-    data_root='/home/xwma/lrr/rssegmentation/data/LoveDA',
+    data_root='/home/xwma/data/2021LoveDA',
     train_mode=dict(
         transform=dict(
             RandomSizeAndCrop = {"size": 512, "crop_nopad": False},
@@ -46,16 +46,16 @@ dataset_config = dict(
 metric_cfg1 = dict(
             task = 'multiclass',
             average='micro',
-            num_classes = 7, 
-            ignore_index = -1
+            num_classes = 8,
+            ignore_index = 7
         )
 
 metric_cfg2 = dict(
             task = 'multiclass',
             average='none',
-            num_classes = 7, 
-            ignore_index = -1
+            num_classes = 8,
+            ignore_index = 7
         )
 
 eval_label_id_left = 0
-eval_label_id_right = 7
+eval_label_id_right = 6
