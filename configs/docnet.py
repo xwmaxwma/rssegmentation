@@ -17,7 +17,7 @@ exp_name = "work_dirs/DOCNet_HRnetv2_w32_potsdam"
 ALL_DATASET = {
     'vaihingen': (300, 6, 6),
     'potsdam': (100, 6, 6),
-    'loveda': (50, 7, -1),
+    'loveda': (50, 7, 7),
 }
 
 dataset = 'potsdam'
