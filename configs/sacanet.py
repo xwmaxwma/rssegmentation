@@ -17,7 +17,7 @@ exp_name = "work_dirs/sacanet_hrnet_loveda_test"
 ALL_DATASET = {
     'vaihingen': (150, 6, 6),
     'potsdam': (80, 6, 6),
-    'loveda': (70, 7, -1),
+    'loveda': (70, 7, 7),
 }  
 
 dataset = 'loveda'
