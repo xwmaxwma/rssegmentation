@@ -17,7 +17,7 @@ exp_name = "work_dirs/LoGCAN_ResNet50_Loveda"
 ALL_DATASET = {
     'vaihingen': (150, 6, 6),
     'potsdam': (80, 6, 6),
-    'loveda': (50, 7, -1),
+    'loveda': (50, 7, 7),
 }
 
 dataset = 'loveda'
