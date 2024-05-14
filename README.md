@@ -1,20 +1,30 @@
 
-# Supported data
-| Dataset | Original dataset | Preprocessed data | Description |
-| ------- | :-------------: | ----------------- | ----------- |
-| Vaihingen | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
-| Potsdam | [link](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx) | |
-| LoveDA | [link](https://codalab.lisn.upsaclay.fr/competitions/421) |
+# Introduction
 
-We provide links to the preprocessed data. Alternatively, you can preprocess the original dataset based on the following command.
-We will support the isaid dataset soon.
+**rssegmentation** is an open-source semantic segmentation toolbox, which is dedicated to reproducing and developing advanced methods for semantic segmentation of remote sensing images.
 
-# Supported Method
-| Method | Config | Checkpoint |
-| ------ | ------ | ---------- |
-| [LogCAN](https://arxiv.org/abs/2303.07747) |
-| [SACANet](https://arxiv.org/abs/2304.11424) |
-| DocNet |
+- Supported Methods
+  - [LOGCAN](https://ieeexplore.ieee.org/abstract/document/10095835/) (ICASSP2023)
+
+  - [SACANet](https://ieeexplore.ieee.org/abstract/document/10219583/) (ICME2023)
+
+  - [DOCNet](https://ieeexplore.ieee.org/abstract/document/10381808) (GRSL2024)
+
+  - CenterSeg (Under review)
+
+  - LOGCAN++ (Under review)
+
+  - SCSMNet (Under review)
+- Supported Datasets
+  - [Vaihingen](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
+  - [Potsdam](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
+  - [LoveDA](https://codalab.lisn.upsaclay.fr/competitions/421)
+  - iSAID (update soon)
+- Supported Tools
+  - Training
+  - Testing
+  - Params and FLOPs counting
+  - Class activation maps (Updated soon)
 
 # Get start
 
@@ -183,3 +193,43 @@ python tools/latency_count.py \
 --ckpt "work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt" \
 ```
 We will support feature visualizations as well as attention relationship visualizations soon.
+
+# Citation
+
+If you find our repo useful for your research, please consider citing our paper:
+
+```
+@inproceedings{ma2023log,
+  title={Log-can: local-global class-aware network for semantic segmentation of remote sensing images},
+  author={Ma, Xiaowen and Ma, Mengting and Hu, Chenlu and Song, Zhiyuan and Zhao, Ziyan and Feng, Tian and Zhang, Wei},
+  booktitle={ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={1--5},
+  year={2023},
+  organization={IEEE}
+}
+
+@inproceedings{ma2023sacanet,
+  title={Sacanet: scene-aware class attention network for semantic segmentation of remote sensing images},
+  author={Ma, Xiaowen and Che, Rui and Hong, Tingfeng and Ma, Mengting and Zhao, Ziyan and Feng, Tian and Zhang, Wei},
+  booktitle={2023 IEEE International Conference on Multimedia and Expo (ICME)},
+  pages={828--833},
+  year={2023},
+  organization={IEEE}
+}
+
+@article{ma2024docnet,
+  title={DOCNet: Dual-Domain Optimized Class-Aware Network for Remote Sensing Image Segmentation},
+  author={Ma, Xiaowen and Che, Rui and Wang, Xinyu and Ma, Mengting and Wu, Sensen and Feng, Tian and Zhang, Wei},
+  journal={IEEE Geoscience and Remote Sensing Letters},
+  year={2024},
+  publisher={IEEE}
+}
+```
+
+# Acknowledgement
+
+Thanks to previous open-sourced repo:
+
+- [mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
+- [pytorch lightning](https://lightning.ai/)
+- [fvcore](https://github.com/facebookresearch/fvcore)
