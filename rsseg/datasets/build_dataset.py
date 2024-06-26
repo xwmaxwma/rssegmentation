@@ -1,12 +1,10 @@
 import sys
-sys.path.append("/home/xwma/lrr/rssegmentation")
 from typing import Iterable, Optional, Sequence, Union
 from torch.utils.data import DataLoader, Dataset, Sampler
 from torch.utils.data.dataloader import _collate_fn_t, _worker_init_fn_t
 from rsseg.datasets.vaihingen_dataset import *
 from rsseg.datasets.potsdam_dataset import *
 from rsseg.datasets.base_dataset import *
-from rsseg.datasets.uavid_datatset import *
 from rsseg.datasets.loveda_dataset import *
 
 def get_loader(dataset, cfg):
