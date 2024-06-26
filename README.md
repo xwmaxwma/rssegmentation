@@ -1,3 +1,4 @@
+![cap](./cap.png)
 
 # Introduction
 
@@ -9,12 +10,12 @@
   - [SACANet](https://ieeexplore.ieee.org/abstract/document/10219583/) (ICME2023)
 
   - [DOCNet](https://ieeexplore.ieee.org/abstract/document/10381808) (GRSL2024)
+ 
+  - [LOGCAN++](https://arxiv.org/abs/2406.16502) (Under review in TGRS)
 
   - CenterSeg (Under review)
 
-  - LOGCAN++ (Under review)
-
-  - SCSMNet (Under review)
+  - SCSM (Under review in ISPRS J PHOTOGRAMM)
 - Supported Datasets
   - [Vaihingen](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
   - [Potsdam](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
@@ -25,6 +26,9 @@
   - Testing
   - Params and FLOPs counting
   - Class activation maps (Updated soon)
+
+# News
+- `2024/06/24`: [LOGCAN++](https://arxiv.org/abs/2406.16502) has been submitted to Arxiv, which is an extension of our previous conference paper [LOGCAN](https://ieeexplore.ieee.org/abstract/document/10095835/). The official implementation of LOGCAN++ is available!
 
 # Get start
 
