@@ -1,4 +1,4 @@
-![cap](./cap.png)
+![cap](./cap.jpg)
 
 # Introduction
 
