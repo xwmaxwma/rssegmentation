@@ -203,7 +203,7 @@ We will support feature visualizations as well as attention relationship visuali
 If you find our repo useful for your research, please consider citing our paper:
 
 ```
-@inproceedings{ma2023log,
+@inproceedings{logcan,
   title={Log-can: local-global class-aware network for semantic segmentation of remote sensing images},
   author={Ma, Xiaowen and Ma, Mengting and Hu, Chenlu and Song, Zhiyuan and Zhao, Ziyan and Feng, Tian and Zhang, Wei},
   booktitle={ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
@@ -212,7 +212,7 @@ If you find our repo useful for your research, please consider citing our paper:
   organization={IEEE}
 }
 
-@inproceedings{ma2023sacanet,
+@inproceedings{sacanet,
   title={Sacanet: scene-aware class attention network for semantic segmentation of remote sensing images},
   author={Ma, Xiaowen and Che, Rui and Hong, Tingfeng and Ma, Mengting and Zhao, Ziyan and Feng, Tian and Zhang, Wei},
   booktitle={2023 IEEE International Conference on Multimedia and Expo (ICME)},
@@ -221,12 +221,22 @@ If you find our repo useful for your research, please consider citing our paper:
   organization={IEEE}
 }
 
-@article{ma2024docnet,
+@article{docnet,
   title={DOCNet: Dual-Domain Optimized Class-Aware Network for Remote Sensing Image Segmentation},
   author={Ma, Xiaowen and Che, Rui and Wang, Xinyu and Ma, Mengting and Wu, Sensen and Feng, Tian and Zhang, Wei},
   journal={IEEE Geoscience and Remote Sensing Letters},
   year={2024},
   publisher={IEEE}
+}
+
+@misc{logcan++,
+      title={LOGCAN++: Local-global class-aware network for semantic segmentation of remote sensing images}, 
+      author={Xiaowen Ma and Rongrong Lian and Zhenkai Wu and Hongbo Guo and Mengting Ma and Sensen Wu and Zhenhong Du and Siyang Song and Wei Zhang},
+      year={2024},
+      eprint={2406.16502},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+      url={https://arxiv.org/abs/2406.16502}, 
 }
 ```
 
