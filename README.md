@@ -1,6 +1,11 @@
 ![cap](./cap.jpg)
 
-# Introduction
+# 🔥 News
+
+- `2024/10/11`: [SSA-Seg](https://arxiv.org/abs/2405.06525) has been accepted by NeurIPS2024! It is an effective and powerful classifier for semantic segmentation. We recommend interested researchers to optimize it for semantic segmentation in remote sensing, which is a promising direction.
+- `2024/06/24`: [LOGCAN++](https://arxiv.org/abs/2406.16502) has been submitted to Arxiv, which is an extension of our previous conference paper [LOGCAN](https://ieeexplore.ieee.org/abstract/document/10095835/). The official implementation of LOGCAN++ is available!
+
+# 📷 Introduction
 
 **rssegmentation** is an open-source semantic segmentation toolbox, which is dedicated to reproducing and developing advanced methods for semantic segmentation of remote sensing images.
 
@@ -10,7 +15,7 @@
   - [SACANet](https://ieeexplore.ieee.org/abstract/document/10219583/) (ICME2023)
 
   - [DOCNet](https://ieeexplore.ieee.org/abstract/document/10381808) (GRSL2024)
- 
+
   - [LOGCAN++](https://arxiv.org/abs/2406.16502) (Under review in TGRS)
 
   - CenterSeg (Under review)
@@ -27,10 +32,7 @@
   - Params and FLOPs counting
   - Class activation maps (Updated soon)
 
-# News
-- `2024/06/24`: [LOGCAN++](https://arxiv.org/abs/2406.16502) has been submitted to Arxiv, which is an extension of our previous conference paper [LOGCAN](https://ieeexplore.ieee.org/abstract/document/10095835/). The official implementation of LOGCAN++ is available!
-
-# Get start
+# 🔐 Preparation
 
 ```shell
 conda create -n rsseg python=3.9
@@ -39,7 +41,7 @@ conda install pytorch==2.0.0 torchvision==0.15.0 torchaudio==2.0.0 pytorch-cuda=
 pip install -r requirements.txt
 ```
 
-# Folder Structure
+# 📒 Folder Structure
 
 Prepare the following folders to organize this repo:
 
@@ -73,9 +75,9 @@ rssegmentation
 │   │   ├── test (processed)
 ```
 
-# Data Processing
+# ✂️ Data Processing
 
-## Vaihingen
+## 1️⃣ Vaihingen
 
 **train**
 
@@ -117,7 +119,7 @@ python tools/dataset_patch_split.py \
 --mode "test"
 ```
 
-## potsdam
+## 2️⃣ potsdam
 
 **train**
 
@@ -159,14 +161,15 @@ python tools/dataset_patch_split.py \
 --mode "test"
 ```
 
+# 📚 Use example
 
-# Training
+### 1️⃣ Training
 
 ```shell
 python train.py -c "configs/logcan.py"
 ```
 
-# Testing
+### 2️⃣ Testing
 
 **Vaihingen and Potsdam**
 
@@ -184,7 +187,7 @@ python online_test.py \
 --ckpt "work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt" \
 ```
 
-# Useful tools
+### 3️⃣ Useful tools
 
 We provide two useful commands to test the model for parameters, flops and latency.
 ```shell
@@ -198,9 +201,9 @@ python tools/latency_count.py \
 ```
 We will support feature visualizations as well as attention relationship visualizations soon.
 
-# Citation
+# 🌟 Citation
 
-If you find our repo useful for your research, please consider citing our paper:
+If you find our repo useful for your research, please consider giving a 🌟 and citing our work below.
 
 ```
 @inproceedings{logcan,
@@ -240,7 +243,11 @@ If you find our repo useful for your research, please consider citing our paper:
 }
 ```
 
-# Acknowledgement
+# 📮 Contact
+
+If you are confused about the content of our paper or look forward to further academic exchanges and cooperation, please do not hesitate to contact us. The e-mail address is xwma@zju.edu.cn. We look forward to hearing from you!
+
+# 💡 Acknowledgement
 
 Thanks to previous open-sourced repo:
 
