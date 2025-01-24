@@ -17,11 +17,11 @@
 
   - [DOCNet](https://ieeexplore.ieee.org/abstract/document/10381808) (GRSL2024)
 
-  - LOGCAN++ [Arxiv](https://arxiv.org/abs/2406.16502) (Under review in TGRS)
+  - LOGCAN++ [(Arxiv)](https://arxiv.org/abs/2406.16502) (Under review in TGRS)
 
   - CenterSeg (Under review)
 
-  - SCSM [Arxiv](https://arxiv.org/abs/2501.13130) (ISPRS2025)
+  - SCSM [(Arxiv)](https://arxiv.org/abs/2501.13130) (ISPRS2025)
 - Supported Datasets
   - [Vaihingen](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
   - [Potsdam](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
