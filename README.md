@@ -242,6 +242,16 @@ If you find our repo useful for your research, please consider giving a 🌟 and
       primaryClass={cs.CV}
       url={https://arxiv.org/abs/2406.16502}, 
 }
+
+@misc{scsm,
+      title={A Novel Scene Coupling Semantic Mask Network for Remote Sensing Image Segmentation}, 
+      author={Xiaowen Ma and Rongrong Lian and Zhenkai Wu and Renxiang Guan and Tingfeng Hong and Mengjiao Zhao and Mengting Ma and Jiangtao Nie and Zhenhong Du and Siyang Song and Wei Zhang},
+      year={2025},
+      eprint={2501.13130},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2501.13130}, 
+}
 ```
 
 # 📮 Contact
