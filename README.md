@@ -21,7 +21,7 @@
 
   - CenterSeg (Under review)
 
-  - SCSM [(Arxiv)](https://arxiv.org/abs/2501.13130) (ISPRS2025)
+  - SCSM [(Arxiv)](https://arxiv.org/abs/2501.13130) [ISPRS](https://www.sciencedirect.com/science/article/pii/S0924271625000255?via%3Dihub) (ISPRS2025)
 - Supported Datasets
   - [Vaihingen](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
   - [Potsdam](https://www.isprs.org/education/benchmarks/UrbanSemLab/default.aspx)
@@ -243,14 +243,16 @@ If you find our repo useful for your research, please consider giving a 🌟 and
       url={https://arxiv.org/abs/2406.16502}, 
 }
 
-@misc{scsm,
-      title={A Novel Scene Coupling Semantic Mask Network for Remote Sensing Image Segmentation}, 
-      author={Xiaowen Ma and Rongrong Lian and Zhenkai Wu and Renxiang Guan and Tingfeng Hong and Mengjiao Zhao and Mengting Ma and Jiangtao Nie and Zhenhong Du and Siyang Song and Wei Zhang},
-      year={2025},
-      eprint={2501.13130},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV},
-      url={https://arxiv.org/abs/2501.13130}, 
+@article{scsm,
+title = {A novel scene coupling semantic mask network for remote sensing image segmentation},
+journal = {ISPRS Journal of Photogrammetry and Remote Sensing},
+volume = {221},
+pages = {44-63},
+year = {2025},
+issn = {0924-2716},
+doi = {https://doi.org/10.1016/j.isprsjprs.2025.01.025},
+url = {https://www.sciencedirect.com/science/article/pii/S0924271625000255},
+author = {Xiaowen Ma and Rongrong Lian and Zhenkai Wu and Renxiang Guan and Tingfeng Hong and Mengjiao Zhao and Mengting Ma and Jiangtao Nie and Zhenhong Du and Siyang Song and Wei Zhang},
 }
 ```
 
