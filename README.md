@@ -234,15 +234,15 @@ If you find our repo useful for your research, please consider giving a 🌟 and
   publisher={IEEE}
 }
 
-@misc{logcan++,
-      title={LOGCAN++: Local-global class-aware network for semantic segmentation of remote sensing images}, 
-      author={Xiaowen Ma and Rongrong Lian and Zhenkai Wu and Hongbo Guo and Mengting Ma and Sensen Wu and Zhenhong Du and Siyang Song and Wei Zhang},
-      year={2024},
-      eprint={2406.16502},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-      url={https://arxiv.org/abs/2406.16502}, 
-}
+@ARTICLE{logcan++,
+  author={Ma, Xiaowen and Lian, Rongrong and Wu, Zhenkai and Guo, Hongbo and Yang, Fan and Ma, Mengting and Wu, Sensen and Du, Zhenhong and Zhang, Wei and Song, Siyang},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={LOGCAN++: Adaptive Local-Global Class-Aware Network For Semantic Segmentation of Remote Sensing Images}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TGRS.2025.3541871}}
 
 @article{scsm,
 title = {A novel scene coupling semantic mask network for remote sensing image segmentation},
