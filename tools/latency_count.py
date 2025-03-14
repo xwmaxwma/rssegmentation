@@ -6,7 +6,7 @@ import time
 import numpy as np
 import torch
 import sys
-sys.path.append(r'/home/xwma/rssegmentation')
+sys.path.append('.')
 from utils.config import Config
 import json
 
@@ -14,7 +14,7 @@ from train import *
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Benchmark a model')
+    parser = argparse.ArgumentParser(description='rsseg: Benchmark a model')
     parser.add_argument("-c", "--config", type=str, default="configs/logcan.py")
     parser.add_argument("--ckpt", type=str, default="work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt")
     parser.add_argument(
@@ -23,7 +23,7 @@ def parse_args():
         '--work-dir',
         help=('if specified, the results will be dumped '
               'into the directory as json'), default=None)
-    parser.add_argument('--repeat-times', type=int, default=1)
+    parser.add_argument('--repeat-times', type=int, default=3)
     args = parser.parse_args()
     return args
 
@@ -56,7 +56,7 @@ def main():
         # the first several iterations may be very slow so skip them
         num_warmup = 5
         pure_inf_time = 0
-        total_iters = 200
+        total_iters = 100
 
         # benchmark with 200 batches and take the average
         for i, input in enumerate(data_loader):
@@ -84,6 +84,7 @@ def main():
                 benchmark_dict[f'overall_fps_{time_index + 1}'] = round(fps, 2)
                 overall_fps_list.append(fps)
                 break
+    print(overall_fps_list)
     benchmark_dict['average_fps'] = round(np.mean(overall_fps_list), 2)
     benchmark_dict['fps_variance'] = round(np.var(overall_fps_list), 4)
     print(f'Average fps of {repeat_times} evaluations: '

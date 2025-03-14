@@ -6,6 +6,7 @@ import torch
 import torch.nn.functional as F
 from timm.models.layers import trunc_normal_
 from einops import rearrange
+from rsseg.models.basemodules.dysample import DySample
 
 def patch_split(input, patch_size):
     """
@@ -360,76 +361,7 @@ class LoGCANPlus_Head(nn.Module):
         self.catconv2 = conv_3x3(transform_channel * 2, transform_channel)
         self.catconv3 = conv_3x3(transform_channel * 2, transform_channel)
 
-
-
         self.catconv = conv_3x3(transform_channel, transform_channel)
-
-
-    def forward_train(self, feat_list, gt_semantic_seg):
-        feat1, feat2, feat3, feat4 = feat_list
-        pred1 = self.decoder_stage1(feat4)
-
-        global_center = self.global_gather(feat4, pred1)
-
-        # [b,h,w,k]
-        new_feat4 = self.center4(feat4, global_center)
-
-        feat3 = self.catconv1(upsample_add(new_feat4, feat3))
-        new_feat3 = self.center3(feat3, global_center)
-
-        feat2 = self.catconv2(upsample_add(new_feat3, feat2))
-        new_feat2 = self.center2(feat2, global_center)
-
-        feat1 = self.catconv3(upsample_add(new_feat2, feat1))
-        new_feat1 = self.center1(feat1, global_center)
-
-        pred1 = F.interpolate(pred1, size=gt_semantic_seg.shape[-2:], mode='bilinear', align_corners=True)
-        aux_loss = self.criterion(pred1, gt_semantic_seg.long()) * self.loss_weights[0]
-
-
-        new_feat4 = F.interpolate(new_feat4, scale_factor=8, mode="bilinear", align_corners=False)
-        new_feat3 = F.interpolate(new_feat3, scale_factor=4, mode="bilinear", align_corners=False)
-        new_feat2 = F.interpolate(new_feat2, scale_factor=2, mode="bilinear", align_corners=False)
-
-        out = self.catconv(new_feat1 + new_feat2 + new_feat3 + new_feat4)
-        pred2 = self.cls_seg(out)
-
-        losses = {}
-        pred2 = F.interpolate(pred2, size=gt_semantic_seg.shape[-2:], mode="bilinear", align_corners=False)
-        pred_loss = self.criterion(pred2, gt_semantic_seg.long()) * self.loss_weights[-1]
-        losses['total_loss'] = pred_loss
-
-        losses['aux_loss'] = aux_loss.detach().data
-        losses['pred_loss'] = pred_loss.detach().data
-        losses['total_loss'] += aux_loss
-        return pred2, losses
-
-    def forward_test(self, feat_list):
-
-        feat1, feat2, feat3, feat4 = feat_list
-        pred1 = self.decoder_stage1(feat4)
-        global_center = self.global_gather(feat4, pred1)
-
-        # [b,h,w,k]
-        new_feat4 = self.center4(feat4, global_center)
-
-        feat3 = self.catconv1(upsample_add(new_feat4, feat3))
-        new_feat3 = self.center3(feat3, global_center)
-
-        feat2 = self.catconv2(upsample_add(new_feat3, feat2))
-        new_feat2 = self.center2(feat2, global_center)
-
-        feat1 = self.catconv3(upsample_add(new_feat2, feat1))
-        new_feat1 = self.center1(feat1, global_center)
-
-        new_feat4 = F.interpolate(new_feat4, scale_factor=8, mode="bilinear", align_corners=False)
-        new_feat3 = F.interpolate(new_feat3, scale_factor=4, mode="bilinear", align_corners=False)
-        new_feat2 = F.interpolate(new_feat2, scale_factor=2, mode="bilinear", align_corners=False)
-
-        out = self.catconv(new_feat1 + new_feat2 + new_feat3 + new_feat4)
-        pred = self.cls_seg(out)
-
-        return pred
 
     def forward(self, x_list):
         feat1, feat2, feat3, feat4 = self.bottleneck1(x_list[0]), self.bottleneck2(x_list[1]), self.bottleneck3(

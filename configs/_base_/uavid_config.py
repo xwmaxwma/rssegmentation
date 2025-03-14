@@ -1,6 +1,7 @@
+dataset = 'uavid'
 dataset_config = dict(
     type='Uavid',
-    data_root='/home/xwma/lrr/rssegmentation/data/uavid/tmp',
+    data_root='data/uavid/tmp',
     train_mode=dict(
         transform=dict(
             RandomSizeAndCrop={"size": 512, "crop_nopad": False},

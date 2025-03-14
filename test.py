@@ -18,7 +18,7 @@ from utils.config import Config
 from tools.mask_convert import mask_save
 
 def get_args():
-    parser = argparse.ArgumentParser('description=Semantic segmentation of remote sensing images')
+    parser = argparse.ArgumentParser(description='rsseg: test model')
     parser.add_argument("-c", "--config", type=str, default="configs/logcan.py")
     parser.add_argument("--ckpt", type=str, default="work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt")
     parser.add_argument("--tta", type=str, default="d4")

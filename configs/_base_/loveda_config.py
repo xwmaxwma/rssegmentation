@@ -1,6 +1,8 @@
+dataset = 'loveda'
+
 dataset_config = dict(
     type='LoveDA',
-    data_root='/home/xwma/data/2021LoveDA',
+    data_root='data/2021LoveDA',
     train_mode=dict(
         transform=dict(
             RandomSizeAndCrop = {"size": 512, "crop_nopad": False},
@@ -59,3 +61,5 @@ metric_cfg2 = dict(
 
 eval_label_id_left = 0
 eval_label_id_right = 6
+
+class_name = ['building', 'road', 'water', 'barren', 'forest', 'agricultural', 'background']

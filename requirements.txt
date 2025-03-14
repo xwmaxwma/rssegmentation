@@ -10,3 +10,6 @@ timm==0.6.7
 addict==2.4.0
 soundfile==0.12.1
 prettytable==3.8.0
+mmcv-full==1.7.1
+mmsegmentation==0.30.0 
+grad-cam==1.5.4

@@ -583,7 +583,7 @@ def add_flops_mask_variable_or_reset(module):
         module.__mask__ = None
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='count params and flops')
+    parser = argparse.ArgumentParser(description='rsseg: count params and flops')
     parser.add_argument("-c", "--config", type=str, default="configs/logcan.py")
     parser.add_argument("--shape", type=tuple, default=(512, 512))
     args = parser.parse_args()
@@ -593,7 +593,7 @@ if __name__ == "__main__":
     import sys
     import os
     import json
-    sys.path.append(r'/home/xwma/rssegmentation')
+    sys.path.append('.')
     from train import *
     args = parse_args()
     cfg = Config.fromfile(args.config)

@@ -16,10 +16,10 @@ from rsseg.optimizers import build_optimizer
 from rsseg.losses import build_loss
 from utils.config import Config
 
-seed_everything(66, workers=True)
+seed_everything(2025, workers=True)
 
 def get_args():
-    parser = argparse.ArgumentParser('description=Semantic segmentation of remote sensing images')
+    parser = argparse.ArgumentParser('rsseg: train model')
     parser.add_argument("-c", "--config", type=str, default="configs/docnet.py")
     return parser.parse_args()
 
@@ -74,7 +74,7 @@ class myTrain(LightningModule):
         result_table.field_names = ['Class', 'OA', 'Precision', 'Recall', 'F1_Score', 'IOU']
 
         for i in range(len(metrics[0])):
-            item = [i, '--']
+            item = [self.cfg.class_name[i], '--']
             for j in range(len(metrics)):
                 item.append(np.round(metrics[j][i].cpu().numpy(), 4))
             result_table.add_row(item)
@@ -121,7 +121,7 @@ class myTrain(LightningModule):
                'tr_f1': np.mean([item.cpu() for item in metrics[2][self.eval_label_id_left: self.eval_label_id_right] if item > 0]),
                'tr_miou': np.mean([item.cpu() for item in metrics[3][self.eval_label_id_left: self.eval_label_id_right] if item > 0])}
         
-        self.output(metrics, log, 'train')
+        # self.output(metrics, log, 'train')
         
         for key, value in zip(log.keys(), log.values()):
             self.log(key, value, on_step=False,on_epoch=True,prog_bar=False)

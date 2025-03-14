@@ -1,6 +1,8 @@
+dataset = 'potsdam'
+
 dataset_config = dict(
     type='Potsdam',
-    data_root='/home/xwma/lrr/rssegmentation/data/potsdam',
+    data_root='data/potsdam',
     train_mode=dict(
         transform=dict(
             RandomSizeAndCrop = {"size": 512, "crop_nopad": False},
@@ -46,3 +48,4 @@ metric_cfg2 = dict(
 
 eval_label_id_left = 0
 eval_label_id_right = 5
+class_name = ['ImSurf', 'Building', 'LowVeg', 'Tree', 'Car', 'Clutter', 'Boundary']

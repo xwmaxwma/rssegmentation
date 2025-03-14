@@ -1,9 +1,13 @@
+dataset = 'vaihingen'
 dataset_config = dict(
     type = 'Vaihingen',
-    data_root = '/home/xwma/lrr/rssegmentation/data/vaihingen',
+    data_root = 'data/vaihingen',
     train_mode = dict(
         transform = dict(
-            RandomSizeAndCrop = {"size": 512, "crop_nopad": False},
+            # RandomSizeAndCrop = {"size": 512, "crop_nopad": False},
+            RandomScale = {'scale_list':[0.5, 0.75, 1.0, 1.25, 1.5], 'mode':'value'},
+            SmartCropV1 = {'crop_size':512, 'max_ratio':0.75,
+                                    'ignore_index':6, 'nopad':False},
             RandomHorizontallyFlip = None,
             RandomVerticalFlip = None,
             RandomRotate = {"degree": 0.2},
@@ -42,5 +46,6 @@ metric_cfg2 = dict(
             num_classes = 7, 
             ignore_index = 6
         )
+class_name = ['ImSurf', 'Building', 'LowVeg', 'Tree', 'Car', 'Clutter', 'Boundary']
 eval_label_id_left = 0
 eval_label_id_right = 5
