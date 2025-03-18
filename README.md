@@ -2,7 +2,7 @@
 
 # 🔥 News
 
-- `2025/3/14`: We fix some bugs and add **CAM** and **Throughput**.
+- `2025/3/18`: We fix some bugs and add **CAM** , **Tsne**, and **Throughput**.
 - `2025/2/11`: [LOGCAN++](https://arxiv.org/abs/2406.16502) has been accepted by TGRS2025!
 - `2025/1/24`: [SCSM](https://arxiv.org/abs/2501.13130) has been accepted by ISPRS2025!
 - `2024/10/11`: [SSA-Seg](https://arxiv.org/abs/2405.06525) has been accepted by NeurIPS2024! It is an effective and powerful classifier for semantic segmentation. We recommend interested researchers to optimize it for semantic segmentation in remote sensing, which is a promising direction.
