@@ -1,10 +1,11 @@
 import torch.nn as nn
 import numpy as np
 import itertools
+import logging
 
-from mmseg.models.builder import BACKBONES
-from mmseg.utils import get_root_logger
-from mmcv.runner import _load_checkpoint
+# from mmseg.models.builder import BACKBONES
+# from mmseg.utils import get_root_logger
+# from mmcv.runner import _load_checkpoint
 
 from torch.nn.modules.batchnorm import _BatchNorm
 
@@ -221,36 +222,27 @@ class RepViT(nn.Module):
         self.train()
 
     def init_weights(self, pretrained=None):
-        logger = get_root_logger()
-        if self.init_cfg is None and pretrained is None:
-            logger.warn(f'No pre-trained weights for '
-                        f'{self.__class__.__name__}, '
-                        f'training start from scratch')
-            pass
+        if self.init_cfg is not None:
+            ckpt_path = self.init_cfg['checkpoint']
+        elif pretrained is not None:
+            ckpt_path = pretrained
+
+        ckpt = torch.load(
+            ckpt_path, map_location='cpu')
+        if 'state_dict' in ckpt:
+            _state_dict = ckpt['state_dict']
+        elif 'model' in ckpt:
+            _state_dict = ckpt['model']
         else:
-            assert 'checkpoint' in self.init_cfg, f'Only support ' \
-                                                  f'specify `Pretrained` in ' \
-                                                  f'`init_cfg` in ' \
-                                                  f'{self.__class__.__name__} '
-            if self.init_cfg is not None:
-                ckpt_path = self.init_cfg['checkpoint']
-            elif pretrained is not None:
-                ckpt_path = pretrained
+            _state_dict = ckpt
 
-            ckpt = _load_checkpoint(
-                ckpt_path, logger=logger, map_location='cpu')
-            if 'state_dict' in ckpt:
-                _state_dict = ckpt['state_dict']
-            elif 'model' in ckpt:
-                _state_dict = ckpt['model']
-            else:
-                _state_dict = ckpt
-
-            state_dict = _state_dict
-            missing_keys, unexpected_keys = \
-                self.load_state_dict(state_dict, False)
-            logger.info(f"Miss {missing_keys}")
-            # logger.info(f"Unexpected {unexpected_keys}")
+        state_dict = _state_dict
+        missing_keys, unexpected_keys = \
+            self.load_state_dict(state_dict, False)
+        # print("Miss: ", missing_keys)
+        # print("Unexpected: ", unexpected_keys)
+        # logger.info(f"Miss {missing_keys}")
+        # logger.info(f"Unexpected {unexpected_keys}")
 
     def train(self, mode=True):
         """Convert the model into training mode while keep layers freezed."""
@@ -272,8 +264,6 @@ class RepViT(nn.Module):
 
 from timm.models import register_model
 
-
-@BACKBONES.register_module()
 def repvit_m1_1(pretrained=False, num_classes = 1000, distillation=False, init_cfg=None, out_indices=[], **kwargs):
     """
     Constructs a MobileNetV3-Large model
@@ -307,7 +297,6 @@ def repvit_m1_1(pretrained=False, num_classes = 1000, distillation=False, init_c
     ]
     return RepViT(cfgs, init_cfg=init_cfg, pretrained=pretrained, distillation=distillation, out_indices=out_indices)
 
-@BACKBONES.register_module()
 def repvit_m1_5(pretrained=False, num_classes = 1000, distillation=False, init_cfg=None, out_indices=[], **kwargs):
     """
     Constructs a MobileNetV3-Large model
@@ -360,7 +349,6 @@ def repvit_m1_5(pretrained=False, num_classes = 1000, distillation=False, init_c
     return RepViT(cfgs, init_cfg=init_cfg, pretrained=pretrained, distillation=distillation, out_indices=out_indices)
 
 
-@BACKBONES.register_module()
 def repvit_m2_3(pretrained=False, num_classes = 1000, distillation=False, init_cfg=None, out_indices=[], **kwargs):
     """
     Constructs a MobileNetV3-Large model
