@@ -52,7 +52,7 @@
           <li>Testing</a></li>
        		<li>Params, FLOPs, Latency, Throughput </a></li>
 			<li>Class activation map </a></li>
-			<li>TSNE map (to do) </a></li>
+			<li>TSNE map </a></li>
         </ul>
       </td>
 </table>
@@ -179,7 +179,13 @@ python tools/cam.py \
 --tar_category 1
 ```
 
+- **Tsne map**
 
+```shell
+python tools/tsne.py \
+-c configs/vaihingen/logcanplus.py \
+--ckpt work_dirs/logcanplus_vaihingen/epoch=45.ckpt 
+```
 
 # 🌟 Citation
 
