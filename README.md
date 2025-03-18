@@ -2,10 +2,13 @@
 
 # 🔥 News
 
-- `2025/3/18`: We fix some bugs and add **CAM** , **Tsne**, and **Throughput**.
+- `2025/3/18`: We add **TSNE map** and the **link of preprocessed dataset and checkpoints**.
+- `2025/3/14`: We fix some bugs and add **CAM** and **Throughput**.
 - `2025/2/11`: [LOGCAN++](https://arxiv.org/abs/2406.16502) has been accepted by TGRS2025!
 - `2025/1/24`: [SCSM](https://arxiv.org/abs/2501.13130) has been accepted by ISPRS2025!
 - `2024/10/11`: [SSA-Seg](https://arxiv.org/abs/2405.06525) has been accepted by NeurIPS2024! It is an effective and powerful classifier for semantic segmentation. We recommend interested researchers to optimize it for semantic segmentation in remote sensing, which is a promising direction.
+
+
 
 # 📷 Introduction
 
@@ -30,12 +33,12 @@
 	<tr valign="top">
       <td>
         <ul>
-          <li><a href="https://ieeexplore.ieee.org/abstract/document/10095835/">LoG-Can(ICASSP2023) </a></li>
-          <li><a href="https://ieeexplore.ieee.org/abstract/document/10219583/">SACANet(ICME2023)</a></li>
-       		<li><a href="https://ieeexplore.ieee.org/abstract/document/10381808/">DOCNet(GRSL2024)</a></li>
+          <li><a href="https://ieeexplore.ieee.org/abstract/document/10095835/">LoG-Can (ICASSP2023) </a></li>
+          <li><a href="https://ieeexplore.ieee.org/abstract/document/10219583/">SACANet (ICME2023)</a></li>
+       		<li><a href="https://ieeexplore.ieee.org/abstract/document/10381808/">DOCNet (GRSL2024)</a></li>
           <li><a href="https://ieeexplore.ieee.org/document/10884928/">LOGCAN++(TGRS2025)</a></li>
-          <li><a href="https://www.sciencedirect.com/science/article/pii/S0924271625000255?via%3Dihub">SCSM(ISPRS2025)</a></li>
-          <li>CenterSeg(Under review)</a></li>
+          <li><a href="https://www.sciencedirect.com/science/article/pii/S0924271625000255?via%3Dihub">SCSM (ISPRS2025)</a></li>
+          <li>CenterSeg (Under review)</a></li>
         </ul>
       </td>
 <td>
@@ -56,7 +59,21 @@
         </ul>
       </td>
 </table>
-**Note:  The checkpoints will be updated gradually**
+
+
+# 🏆 Checkpoint
+
+| Model                                                        | Vaihingen<br>[Preprocessed](https://pan.baidu.com/s/18zLMK8-gleYFyyXl-OWHrg) | Potsdam<br>[Preprocessed](https://pan.baidu.com/s/1qunEBhLH_GhqsnU6ZVK6TQ) | LoveDA | iSAID |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | ----- |
+| [LoG-Can](https://ieeexplore.ieee.org/abstract/document/10095835/) | [83.0](https://pan.baidu.com/s/105FsojTUzztah8xcdet3FA)      | [86.4](https://pan.baidu.com/s/105FsojTUzztah8xcdet3FA)      | -      | -     |
+| [SACANet]()                                                  | [83.7](https://pan.baidu.com/s/1FFlDfa51r-bi-E9JcIDkJg )     | [86.8](https://pan.baidu.com/s/1FFlDfa51r-bi-E9JcIDkJg )     | -      | -     |
+| [DOCNet]()                                                   | [84.0](https://pan.baidu.com/s/1YOVR-u-imX9ZqH9bO0aaGA )     | [87.1](https://pan.baidu.com/s/1YOVR-u-imX9ZqH9bO0aaGA)      | -      | -     |
+| [LOGCAN++]()                                                 | [83.9](https://pan.baidu.com/s/1O5HmaXyUdRMXY34zHKn_Gg )     | [87.7](https://pan.baidu.com/s/1O5HmaXyUdRMXY34zHKn_Gg)      | -      | -     |
+| [SCSM]()                                                     | -                                                            | -                                                            | -      | -     |
+
+The backbone is provided at this [link](https://pan.baidu.com/s/1W-KFZ5Me1KbpiGwZv27qCA ). The password for all links is **xwma**
+
+Note: The above results are obtained on the A5000 GPU, which are affected by device and random seeds. For example, we have an average higher mIoU on the V100 GPU. The remaining checkpoints will be updated gradually.
 
 
 
@@ -119,6 +136,10 @@ bash tools/vaihingen_preprocess.sh
 bash tools/potsdam_preprocess.sh 
 ```
 
+Note: We also provide the preprocessed [vaihingen](https://pan.baidu.com/s/18zLMK8-gleYFyyXl-OWHrg) and [potsdam](https://pan.baidu.com/s/1qunEBhLH_GhqsnU6ZVK6TQ) dataset.
+
+
+
 # 📚 Use example
 
 ### 1️⃣ Training
@@ -167,8 +188,6 @@ python tools/latency_count.py \
   python tools/throughput_count.py -c configs/vaihingen/logcanplus.py
 ```
 
-  
-
 - **Class activation map**
 
 ```shell
@@ -179,13 +198,15 @@ python tools/cam.py \
 --tar_category 1
 ```
 
-- **Tsne map**
+* **TSNE map**
 
 ```shell
-python tools/tsne.py \
--c configs/vaihingen/logcanplus.py \
---ckpt work_dirs/logcanplus_vaihingen/epoch=45.ckpt 
+  python tools/tsne.py \
+  -c configs/vaihingen/logcanplus.py \
+  --ckpt work_dirs/logcanplus_vaihingen/epoch=45.ckpt 
 ```
+
+  
 
 # 🌟 Citation
 
