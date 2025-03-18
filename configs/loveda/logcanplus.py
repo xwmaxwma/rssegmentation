@@ -20,7 +20,6 @@ ignore_index = 7
 
 ######################### model_config #########################
 model_config = dict(
-    transform_channel = 128,
     num_class = num_class,
     backbone = dict(
         type = 'repvit_m2_3',
@@ -33,14 +32,14 @@ model_config = dict(
     seghead = dict(
         type = 'LoGCANPlus_Head',
         in_channel = [80, 160, 320, 640],
-        transform_channel = 128,
+        transform_channel = 96,
         num_class = num_class,
         num_heads = 8,
         patch_size = (4,4)
     ),
     classifier = dict(
         type = 'Base_Classifier',
-        transform_channel = 128,
+        transform_channel = 96,
         num_class = num_class,
     ),
     upsample=dict(
