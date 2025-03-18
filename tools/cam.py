@@ -46,8 +46,8 @@ class SemanticSegmentationTarget:
 
 def parse_args():
     parser = argparse.ArgumentParser(description='rsseg: cam map')
-    parser.add_argument("-c", "--config", type=str, default="configs/logcan.py")
-    parser.add_argument("--ckpt", type=str, default="work_dirs/LoGCAN_ResNet50_Loveda/epoch=45.ckpt")
+    parser.add_argument("-c", "--config", type=str, default="configs/vaihingen/logcanplus.py")
+    parser.add_argument("--ckpt", type=str, default="work_dirs/logcanplus_vaihingen/epoch=64.ckpt")
     parser.add_argument("--tar_layer", type=str, default="model.net.seghead.catconv2[-2]")
     parser.add_argument("--tar_category", type=int, default=1)
     parser.add_argument("--cam_output_dir", default=None)
@@ -69,11 +69,13 @@ def main():
         if not os.path.exists(cam_output_dir):
             os.makedirs(cam_output_dir)
     
+    class_name = cfg.class_name
+    category = args.tar_category
     test_loader = build_dataloader(cfg.dataset_config, mode='test') 
     model.eval()
 
     for input in tqdm(test_loader):
-        masks, gts, img_ids = model(input[0].to(device)), input[1].cuda(), input[2]
+        masks, gts, img_ids = model(input[0].to(device)), input[1].to(device), input[2]
         masks = nn.Softmax(dim=1)(masks[0]) 
         masks = masks.argmax(dim=1)           
         for i in range(masks.shape[0]):
@@ -82,16 +84,13 @@ def main():
             mask_name = img_ids[i]
 
             tar_layer = [eval(args.tar_layer)]
-            category = args.tar_category
-
+            
             height, width = gt.shape[-2:]
             mask_float = np.float32(mask == category)
 
             targets = [
                 SemanticSegmentationTarget(category, mask_float, (height, width))
             ]
-
-            data_cfg = cfg.dataset_config
 
             test_dataset = test_loader.dataset
             img_path = os.path.join(test_dataset.data_root, test_dataset.img_dir, mask_name + test_dataset.img_suffix)
@@ -103,7 +102,7 @@ def main():
             grayscale_cam = cam(input_tensor=input[0][i].unsqueeze(0).to(device), targets=targets)[0, :]
 
             cam_image = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True)
-            Image.fromarray(cam_image).save(cam_output_dir + mask_name + '.png')
+            Image.fromarray(cam_image).save(cam_output_dir + mask_name + '_{}'.format(class_name[category]) + '.png')
 
 if __name__ == "__main__":
     main()
