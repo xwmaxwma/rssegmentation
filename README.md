@@ -38,7 +38,7 @@
        		<li><a href="https://ieeexplore.ieee.org/abstract/document/10381808/">DOCNet (GRSL2024)</a></li>
           <li><a href="https://ieeexplore.ieee.org/document/10884928/">LOGCAN++(TGRS2025)</a></li>
           <li><a href="https://www.sciencedirect.com/science/article/pii/S0924271625000255?via%3Dihub">SCSM (ISPRS2025)</a></li>
-          <li>CenterSeg (Under review)</a></li>
+          <li><a href="https://arxiv.org/abs/2503.16963">CenterSeg (Under review)</a></li>
         </ul>
       </td>
 <td>
@@ -261,6 +261,16 @@ issn = {0924-2716},
 doi = {https://doi.org/10.1016/j.isprsjprs.2025.01.025},
 url = {https://www.sciencedirect.com/science/article/pii/S0924271625000255},
 author = {Xiaowen Ma and Rongrong Lian and Zhenkai Wu and Renxiang Guan and Tingfeng Hong and Mengjiao Zhao and Mengting Ma and Jiangtao Nie and Zhenhong Du and Siyang Song and Wei Zhang},
+}
+
+@misc{centerseg,
+      title={Center-guided Classifier for Semantic Segmentation of Remote Sensing Images}, 
+      author={Wei Zhang and Mengting Ma and Yizhen Jiang and Rongrong Lian and Zhenkai Wu and Kangning Cui and Xiaowen Ma},
+      year={2025},
+      eprint={2503.16963},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.16963}, 
 }
 ```
 </details>
