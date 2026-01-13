@@ -1,6 +1,7 @@
 ![cap](./cap.jpg)
 
 # 🔥 News
+- `2026/1/13`: [CenterSeg](https://arxiv.org/abs/2503.16963) has been accepted by TGRS2026!
 - `2025/7/3`: [TinyViM](https://arxiv.org/abs/2411.17473) has been accepted by ICCV 2025! It is an efficient and powerful backbone, and performs well on remote sensing image segmentation tasks. We have included the code of TinyViM in the rssegmentation repository.
 - `2025/3/18`: We add **TSNE map** and the **link of preprocessed dataset and checkpoints**.
 - `2025/3/14`: We fix some bugs and add **CAM** and **Throughput**.
@@ -286,3 +287,4 @@ Thanks to previous open-sourced repo:
 - [mmsegmentation](https://github.com/open-mmlab/mmsegmentation)
 - [pytorch lightning](https://lightning.ai/)
 - [fvcore](https://github.com/facebookresearch/fvcore)
+
